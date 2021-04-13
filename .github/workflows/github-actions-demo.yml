@@ -15,5 +15,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "I have a secret! It's ${{ secrets.YOUR_SECRET_NAME }}"
-      - run: echo -n "I want to show you my secret:"; for i in ":${{ secrets.YOUR_SECRET_NAME }}:" "I tried."; do echo "$i"; done
+      - run: echo -n "I want to show you my secret:"; for i in ":${{ secrets.YOUR_SECRET_NAME }}:" "I tried."; do echo "${i/:/}"; done
       - run: echo "🍏 This job's status is ${{ job.status }}."
